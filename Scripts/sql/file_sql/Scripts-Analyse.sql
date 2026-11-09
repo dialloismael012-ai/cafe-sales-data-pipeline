@@ -100,7 +100,7 @@ FROM cafe.cafe_dirty
 WHERE transaction_date IS NULL
 ;
 
------------Niveau 2 ------------
+-----------Niveau 2 -------------------------------------------------
 
 --le CA par produit et par lieu
 SELECT item,location,
@@ -108,4 +108,82 @@ sum (total_spent) as CA
 FROM cafe.cafe_dirty
 GROUP BY item,location
 ORDER BY CA DESC
+;
+
+------classer les tickets par taille de panier----
+
+SELECT 
+    CASE 
+        WHEN total_spent < 10 THEN 'Petit'
+        WHEN total_spent < 20 THEN 'Moyen'
+        ELSE  'Grand'
+    END as panier,
+    count(*) as nbre_ticket,
+    round(sum(total_spent)) as CA
+    FROM cafe.cafe_dirty
+    WHERE total_spent IS NOT NULL
+    GROUP BY panier 
+    ORDER BY CA DESC
+    ;
+
+    --------moyenne et médiane du ticket------
+
+SELECT
+        count(*) as Nbre_Ticket,
+        round(AVG (total_spent),2) as Panier_Moyen,
+        percentile_cont(0.5) WITHIN GROUP( ORDER BY total_spent) as Median
+        FROM cafe.cafe_dirty
+        WHERE total_spent IS NOT NULL
+        ;
+
+---part de chaque mode de paiement en %
+
+SELECT payment_method,
+count(payment_method) as Nbre_Payment,
+round((100.0 * count(*) / (
+    SELECT 
+    count(*) 
+    from cafe.cafe_dirty
+    WHERE payment_method != 'Unknown')),2) AS Prcent_pay_method
+FROM cafe.cafe_dirty
+WHERE payment_method != 'Unknown'
+GROUP BY payment_method
+ORDER BY Nbre_Payment DESC
+;
+
+----la part de Unknown dans chaque colonne---
+
+SELECT
+   round(100.0 * count(*) FILTER (WHERE item = 'Unknown') / count(*),2) as Part_UNKNOWN_item,
+    round(100.0 * count(*) FILTER (WHERE payment_method = 'Unknown') / count(*),2) as Part_UNKNOWN_payment,
+    round(100.0 * count(*) FILTER (WHERE location = 'Unknown') / count(*),2) as Part_de_location_UNKNOWN,
+    round(100.0 * count(*) FILTER (WHERE quantity is NULL) / count(*),2) as Part_Null_quantity,
+    round(100.0 * count(*) FILTER (WHERE total_spent is NULL) / count(*), 2) as Part_Null_total,
+    round(100.0 * count(*) FILTER (WHERE price_per_unit is NULL) / count(*),2) as Part_Null_Price,
+    round(100.0 * count(*) FILTER (WHERE transaction_date is NULL) / count(*),2) as Part_Null_date
+    FROM cafe.cafe_dirty;
+
+----Produits au-dessus de 10 000 de CA
+SELECT item,
+sum (total_spent) as CA
+FROM cafe.cafe_dirty
+GROUP BY item
+HAVING sum (total_spent) > 10000
+ORDER BY CA DESC
+;
+
+--dans la colonne location, combien de tickets ont un lieu réellement connu ? Compare ce nombre avec le total de la colonne.
+SELECT location,
+count(location) as Nbre_sans_Nullif,
+count(NULLIF(location,'Unknown')) as Nbre_location_connu
+from cafe.cafe_dirty
+GROUP BY location
+;
+
+
+SELECT location,
+AVG(total_spent) as Moyenne_sans_coalesce,
+AVG(COALESCE(total_spent,0)) as Nbre_location_connu
+from cafe.cafe_dirty
+GROUP BY location
 ;
