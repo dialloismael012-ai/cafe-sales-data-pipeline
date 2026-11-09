@@ -76,7 +76,7 @@ FROM cafe.cafe_dirty
 WHERE total_spent = '25' AND item = 'Unknown'
 ;
 --le UPDATE
-UPDATE cafe.cafe_dirty
+--UPDATE cafe.cafe_dirty
 SET quantity = 5 , price_per_unit = 5, item = 'Salad'
 WHERE transaction_id = 'TXN_7376255'
 ;
