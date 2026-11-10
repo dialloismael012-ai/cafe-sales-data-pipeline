@@ -187,3 +187,77 @@ AVG(COALESCE(total_spent,0)) as Nbre_location_connu
 from cafe.cafe_dirty
 GROUP BY location
 ;
+
+---Niveau 3----------
+----CA par mois, avec une ligne « Sans date » pour les 460 tickets sans date
+SELECT 
+count(*) as Nbre_ticket,
+COALESCE(to_char(date_trunc('month',transaction_date),'YYYY-MM'),'sans date') as debut_mois,
+sum(total_spent) as CA
+from cafe.cafe_dirty
+GROUP BY date_trunc('month',transaction_date)
+ORDER BY CA ASC;
+
+---le CA par jour de la semaine
+SELECT 
+    extract(isodow FROM transaction_date) as num_Day,
+
+    CASE 
+        WHEN extract(isodow FROM transaction_date) = 1 THEN 'LUNDI'
+        WHEN extract(isodow FROM transaction_date) = 2 THEN 'MARDI'
+        WHEN extract(isodow FROM transaction_date) = 3 THEN 'MERCREDI'
+        WHEN extract(isodow FROM transaction_date) = 4 THEN 'JEUDI'
+        WHEN extract(isodow FROM transaction_date) = 5 THEN 'VENDREDI'
+        WHEN extract(isodow FROM transaction_date) = 6 THEN 'SAMEDI'
+        when extract(isodow FROM transaction_date) = 7 THEN 'DIMANCHE'
+        ---Pas--besoin--de--else--car-les-vides-sont-exclus
+    END as Jour ,
+    count(*) as Nb_tickets,
+    sum(total_spent) as CA
+
+FROM cafe.cafe_dirty
+WHERE transaction_date is NOT NULL
+
+GROUP BY extract(isodow FROM transaction_date) 
+ORDER BY extract(isodow FROM transaction_date) ;
+
+---le meilleur et le pire mois---
+
+(SELECT 
+    date_trunc('month',transaction_date) :: date as NUM_MOIS,
+    count(*) as Nbre_tickts,
+    sum(total_spent) as CA
+from cafe.cafe_dirty
+WHERE transaction_date is not NULL
+GROUP BY NUM_MOIS 
+ORDER BY CA ASC
+LIMIT 1)
+UNION ALL
+(SELECT 
+    date_trunc('month',transaction_date) :: date as NUM_MOIS,
+    count(*) as Nbre_tickts,
+    sum(total_spent) as CA
+from cafe.cafe_dirty
+WHERE transaction_date is not NULL
+GROUP BY NUM_MOIS 
+ORDER BY CA DESC
+LIMIT 1)
+;
+
+--Takeaway contre In-store, par trimestre
+SELECT location,
+extract(quarter FROM transaction_date) as trimestre,
+sum(total_spent) as CA
+FROM cafe.cafe_dirty
+WHERE transaction_date IS NOT NULL AND location != 'Unknown'
+GROUP BY trimestre, location
+ORDER BY CA DESC;
+
+SELECT location,
+extract(quarter FROM transaction_date) as trimestre,
+count(*) as Nbre_tickets,
+round(AVG(total_spent),2)as Panier_Moyen
+FROM cafe.cafe_dirty
+WHERE transaction_date IS NOT NULL AND location != 'Unknown'
+GROUP BY trimestre, location
+ORDER BY Panier_Moyen DESC;
