@@ -69,6 +69,11 @@ Visualisation
 
 Tableau est connecté directement à la base PostgreSQL. Un premier graphique (CA par produit) reprend les chiffres du SQL à l'identique.
 
+Dashboard Tableau :
+
+
+![Dashboard Tableau](Image/dashboard.png)
+
 # ------------------------------------------------------------
 Requirements
 pandas
