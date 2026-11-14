@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1430 660" width="1430" height="660" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<title>Architecture du projet Dirty Cafe Sales</title>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#4C9BD1"/></marker>
+<filter id="gl" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<rect width="1430" height="660" rx="18" fill="#0B2A40"/>
+<text x="715.0" y="58" text-anchor="middle" font-size="30" font-weight="700" fill="#FFFFFF">Dirty Cafe Sales : architecture du pipeline de données</text>
+<text x="715.0" y="88" text-anchor="middle" font-size="16" fill="#A9C7DD">Kaggle → pandas → PostgreSQL → Tableau, versionné avec Git / GitHub</text>
+<rect x="40" y="130" width="190" height="140" rx="14" fill="#123B58" stroke="#4C9BD1" stroke-width="2"><animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="3s" begin="0.0s" repeatCount="indefinite"/></rect>
+<path d="M123.0,148 h16 l8,8 v24 h-24 z M139.0,148 v8 h8" stroke="#4C9BD1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="135.0" y="212" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">Kaggle</text>
+<text x="135.0" y="234" text-anchor="middle" font-size="12.5" fill="#A9C7DD">Dirty Cafe Sales</text>
+<text x="135.0" y="254" text-anchor="middle" font-size="12.5" fill="#A9C7DD">10 000 lignes · CSV brut</text>
+<rect x="330" y="130" width="190" height="140" rx="14" fill="#123B58" stroke="#4C9BD1" stroke-width="2"><animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="3s" begin="0.4s" repeatCount="indefinite"/></rect>
+<path d="M417.0,156 l-10,8 l10,8 M433.0,156 l10,8 l-10,8 M428.0,150 l-6,28" stroke="#4C9BD1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="425.0" y="212" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">Python · pandas</text>
+<text x="425.0" y="234" text-anchor="middle" font-size="12.5" fill="#A9C7DD">VS Code</text>
+<text x="425.0" y="254" text-anchor="middle" font-size="12.5" fill="#A9C7DD">nettoyage + typage</text>
+<rect x="620" y="130" width="190" height="140" rx="14" fill="#123B58" stroke="#4C9BD1" stroke-width="2"><animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="3s" begin="0.8s" repeatCount="indefinite"/></rect>
+<rect x="701.0" y="150" width="28" height="28" rx="3" stroke="#4C9BD1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M701.0,160 h28 M701.0,170 h28 M715.0,150 v28" stroke="#4C9BD1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="715.0" y="212" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">CSV propre</text>
+<text x="715.0" y="234" text-anchor="middle" font-size="12.5" fill="#A9C7DD">02_…_clean_go_sql.csv</text>
+<text x="715.0" y="254" text-anchor="middle" font-size="12.5" fill="#A9C7DD">prêt pour la base</text>
+<rect x="910" y="130" width="190" height="140" rx="14" fill="#123B58" stroke="#4C9BD1" stroke-width="2"><animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="3s" begin="1.2000000000000002s" repeatCount="indefinite"/></rect>
+<ellipse cx="1005.0" cy="153" rx="14" ry="5" stroke="#4C9BD1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M991.0,153 v22 a14,5 0 0 0 28,0 v-22 M991.0,164 a14,5 0 0 0 28,0" stroke="#4C9BD1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1005.0" y="212" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">PostgreSQL</text>
+<text x="1005.0" y="234" text-anchor="middle" font-size="12.5" fill="#A9C7DD">cafe.cafe_dirty</text>
+<text x="1005.0" y="254" text-anchor="middle" font-size="12.5" fill="#A9C7DD">analyse SQL (niveaux A–C)</text>
+<rect x="1200" y="130" width="190" height="140" rx="14" fill="#123B58" stroke="#4C9BD1" stroke-width="2"><animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="3s" begin="1.6s" repeatCount="indefinite"/></rect>
+<path d="M1281.0,178 v-12 M1290.0,178 v-22 M1299.0,178 v-16 M1308.0,178 v-28" stroke="#4C9BD1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1295.0" y="212" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">Tableau</text>
+<text x="1295.0" y="234" text-anchor="middle" font-size="12.5" fill="#A9C7DD">dashboard interactif</text>
+<text x="1295.0" y="254" text-anchor="middle" font-size="12.5" fill="#A9C7DD">4 feuilles + filtre Location</text>
+<line x1="232" y1="200.0" x2="326" y2="200.0" stroke="#4C9BD1" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#ar)" opacity="0.8"><animate attributeName="stroke-dashoffset" from="26" to="0" dur="1s" repeatCount="indefinite"/></line>
+<text x="280.0" y="186.0" text-anchor="middle" font-size="12" fill="#A9C7DD">read_csv</text>
+<g opacity="0"><circle r="9" fill="#FF6B6B" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#FF6B6B"/><animateMotion dur="2.4s" begin="0.0s" repeatCount="indefinite" path="M230,200.0 L330,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="0.0s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#FF6B6B" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#FF6B6B"/><animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite" path="M230,200.0 L330,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="0.8s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#FF6B6B" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#FF6B6B"/><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite" path="M230,200.0 L330,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="1.6s" repeatCount="indefinite"/></g>
+<line x1="522" y1="200.0" x2="616" y2="200.0" stroke="#4C9BD1" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#ar)" opacity="0.8"><animate attributeName="stroke-dashoffset" from="26" to="0" dur="1s" repeatCount="indefinite"/></line>
+<text x="570.0" y="186.0" text-anchor="middle" font-size="12" fill="#A9C7DD">to_csv</text>
+<g opacity="0"><circle r="9" fill="#4ADE80" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#4ADE80"/><animateMotion dur="2.4s" begin="0.2s" repeatCount="indefinite" path="M520,200.0 L620,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="0.2s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#4ADE80" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#4ADE80"/><animateMotion dur="2.4s" begin="1.0s" repeatCount="indefinite" path="M520,200.0 L620,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="1.0s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#4ADE80" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#4ADE80"/><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M520,200.0 L620,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="1.8s" repeatCount="indefinite"/></g>
+<line x1="812" y1="200.0" x2="906" y2="200.0" stroke="#4C9BD1" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#ar)" opacity="0.8"><animate attributeName="stroke-dashoffset" from="26" to="0" dur="1s" repeatCount="indefinite"/></line>
+<text x="860.0" y="186.0" text-anchor="middle" font-size="12" fill="#A9C7DD">SQLAlchemy</text>
+<g opacity="0"><circle r="9" fill="#4ADE80" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#4ADE80"/><animateMotion dur="2.4s" begin="0.4s" repeatCount="indefinite" path="M810,200.0 L910,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="0.4s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#4ADE80" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#4ADE80"/><animateMotion dur="2.4s" begin="1.2000000000000002s" repeatCount="indefinite" path="M810,200.0 L910,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="1.2000000000000002s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#4ADE80" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#4ADE80"/><animateMotion dur="2.4s" begin="2.0s" repeatCount="indefinite" path="M810,200.0 L910,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="2.0s" repeatCount="indefinite"/></g>
+<line x1="1102" y1="200.0" x2="1196" y2="200.0" stroke="#4C9BD1" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#ar)" opacity="0.8"><animate attributeName="stroke-dashoffset" from="26" to="0" dur="1s" repeatCount="indefinite"/></line>
+<text x="1150.0" y="186.0" text-anchor="middle" font-size="12" fill="#A9C7DD">connexion</text>
+<g opacity="0"><circle r="9" fill="#4ADE80" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#4ADE80"/><animateMotion dur="2.4s" begin="0.6000000000000001s" repeatCount="indefinite" path="M1100,200.0 L1200,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="0.6000000000000001s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#4ADE80" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#4ADE80"/><animateMotion dur="2.4s" begin="1.4000000000000001s" repeatCount="indefinite" path="M1100,200.0 L1200,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="1.4000000000000001s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#4ADE80" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#4ADE80"/><animateMotion dur="2.4s" begin="2.2s" repeatCount="indefinite" path="M1100,200.0 L1200,200.0"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="2.2s" repeatCount="indefinite"/></g>
+<text x="280" y="234.0" text-anchor="middle" font-size="12" font-weight="700" fill="#FF6B6B">données brutes</text>
+<text x="570" y="234.0" text-anchor="middle" font-size="12" font-weight="700" fill="#4ADE80">propres</text>
+<rect x="330" y="390" width="1060" height="70" rx="12" fill="#123B58" stroke="#5AB0FF" stroke-width="2" stroke-dasharray="2 0"/>
+<text x="860" y="420" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">Dépôt Git local : dossier Projet/</text>
+<text x="860" y="444" text-anchor="middle" font-size="13" fill="#A9C7DD">Scripts/python · Scripts/sql · database/ · Image/ · README.md · requirements.txt · .gitignore</text>
+<line x1="425" y1="272" x2="425" y2="386" stroke="#5AB0FF" stroke-width="2.2" stroke-dasharray="6 6" marker-end="url(#ar)" opacity="0.8"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/></line>
+<text x="435" y="334.0" font-size="12" fill="#A9C7DD">scripts .py</text>
+<g opacity="0"><circle r="9" fill="#5AB0FF" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#5AB0FF"/><animateMotion dur="2s" begin="0.0s" repeatCount="indefinite" path="M425,270 L425,390"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2s" begin="0.0s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#5AB0FF" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#5AB0FF"/><animateMotion dur="2s" begin="1.0s" repeatCount="indefinite" path="M425,270 L425,390"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2s" begin="1.0s" repeatCount="indefinite"/></g>
+<line x1="1005" y1="272" x2="1005" y2="386" stroke="#5AB0FF" stroke-width="2.2" stroke-dasharray="6 6" marker-end="url(#ar)" opacity="0.8"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/></line>
+<text x="1015" y="334.0" font-size="12" fill="#A9C7DD">scripts .sql</text>
+<g opacity="0"><circle r="9" fill="#5AB0FF" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#5AB0FF"/><animateMotion dur="2s" begin="0.3s" repeatCount="indefinite" path="M1005,270 L1005,390"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2s" begin="0.3s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#5AB0FF" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#5AB0FF"/><animateMotion dur="2s" begin="1.3s" repeatCount="indefinite" path="M1005,270 L1005,390"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2s" begin="1.3s" repeatCount="indefinite"/></g>
+<line x1="1295" y1="272" x2="1295" y2="386" stroke="#5AB0FF" stroke-width="2.2" stroke-dasharray="6 6" marker-end="url(#ar)" opacity="0.8"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/></line>
+<text x="1305" y="334.0" font-size="12" fill="#A9C7DD">dashboard.png</text>
+<g opacity="0"><circle r="9" fill="#5AB0FF" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#5AB0FF"/><animateMotion dur="2s" begin="0.6s" repeatCount="indefinite" path="M1295,270 L1295,390"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2s" begin="0.6s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#5AB0FF" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#5AB0FF"/><animateMotion dur="2s" begin="1.6s" repeatCount="indefinite" path="M1295,270 L1295,390"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2s" begin="1.6s" repeatCount="indefinite"/></g>
+<rect x="700" y="520" width="320" height="90" rx="14" fill="#123B58" stroke="#F5A623" stroke-width="2"><animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="3s" repeatCount="indefinite"/></rect>
+<text x="860" y="556" text-anchor="middle" font-size="19" font-weight="700" fill="#FFFFFF">GitHub</text>
+<text x="860" y="580" text-anchor="middle" font-size="13" fill="#A9C7DD">cafe-sales-data-pipeline</text>
+<text x="860" y="598" text-anchor="middle" font-size="12" fill="#A9C7DD">README + dashboard visibles</text>
+<line x1="860" y1="462" x2="860" y2="516" stroke="#F5A623" stroke-width="2.4" stroke-dasharray="6 6" marker-end="url(#ar)"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/></line>
+<text x="872" y="494.0" font-size="12" fill="#F5A623">git add · commit · push</text>
+<g opacity="0"><circle r="9" fill="#F5A623" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#F5A623"/><animateMotion dur="1.6s" begin="0.0s" repeatCount="indefinite" path="M860,460 L860,520"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="1.6s" begin="0.0s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="9" fill="#F5A623" filter="url(#gl)" opacity="0.7"/><circle r="5" fill="#F5A623"/><animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite" path="M860,460 L860,520"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="1.6s" begin="0.8s" repeatCount="indefinite"/></g>
+<text x="40" y="400" font-size="14" font-weight="700" fill="#FFFFFF">Légende</text>
+<circle cx="48" cy="424" r="6" fill="#FF6B6B"/><text x="64" y="428" font-size="13" fill="#A9C7DD">données brutes (sales)</text>
+<circle cx="48" cy="452" r="6" fill="#4ADE80"/><text x="64" y="456" font-size="13" fill="#A9C7DD">données nettoyées</text>
+<circle cx="48" cy="480" r="6" fill="#5AB0FF"/><text x="64" y="484" font-size="13" fill="#A9C7DD">code versionné</text>
+<circle cx="48" cy="508" r="6" fill="#F5A623"/><text x="64" y="512" font-size="13" fill="#A9C7DD">publication GitHub</text>
+<text x="715.0" y="644" text-anchor="middle" font-size="12" fill="#A9C7DD">10 000 transactions · 89 044 € de CA retrouvés à l'identique dans pandas, SQL et Tableau</text>
+</svg>

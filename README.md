@@ -14,6 +14,9 @@ Le pipeline
 
 CSV brut → nettoyage pandas → CSV propre → SQLAlchemy → PostgreSQL → analyse SQL → Tableau
 
+
+![Architecture du pipeline](Image/architecture_cafe.svg)
+
 Structure du dépôt
 
 Projet/
